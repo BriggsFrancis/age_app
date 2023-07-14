@@ -16,7 +16,7 @@ SUPERUSER_EMAIL=briggsf22@gmail.com
 
 
 notify() {
-    if [ '$#' -lt 2 ]; then
+    if [ $# -lt 2 ]; then
      echo -e "${red} 2 postional arguments required ${end}"
 
     fi
