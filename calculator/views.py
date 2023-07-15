@@ -35,6 +35,7 @@ def result(request,name):
         'age_days':name_obj.calculate_age_days(),
         'age_weeks':name_obj.calculate_age_weeks(),
         'age_years':name_obj.calculate_age_years(),
+        'generation': name_obj.generation()
     }
     return render(request,'age_calc/result.html',context=context)
 
