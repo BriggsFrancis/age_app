@@ -3,17 +3,17 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 # Create your models here.
 
-def validate_datetime_format(value):
-    #To make sure user input is in correct format
-    desired_format= "%Y/%m/%d"
-    try:
-        datetime.strptime(value,desired_format)
-    except ValueError:
-        raise ValidationError("invalid Format it should be written as YYYY/MM/DD")
+# def validate_datetime_format(value):
+#     #To make sure user input is in correct format
+#     desired_format= "%Y/%m/%d"
+#     try:
+#         datetime.strptime(value,desired_format)
+#     except ValueError:
+#         raise ValidationError("invalid Format it should be written as YYYY/MM/DD")
 
 def validate_name(value):
-    Chars='qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
-    for val in value: raise ValidationError() if val not in Chars else None
+    if not value.isalpha():
+        raise ValidationError('Use only alphabets')
 
 
 class Data(models.Model):
@@ -21,7 +21,7 @@ class Data(models.Model):
     This is to store user data 
     '''
     name= models.CharField(max_length=100,null=False,default='',validators=[validate_name])
-    age=models.DateTimeField(validators=[validate_datetime_format])
+    age=models.DateTimeField() #validators=[validate_datetime_format]
     now=models.DateTimeField(auto_now=True)
 
     def calculate_age_seconds(self):
