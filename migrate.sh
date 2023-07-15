@@ -49,7 +49,7 @@ python3 manage.py createsuperuser \
 
 notify info "====Migrating===="
 python3 manage.py makemigrations 
-python3 manage.py migrate --noinput 
+python3 manage.py migrate --noinput && notify success "====Migrations complete===="
 
 exit 0 
 

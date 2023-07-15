@@ -14,4 +14,5 @@ from calculator import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('result/<str:name>/',views.result,name='result'),
 ]
