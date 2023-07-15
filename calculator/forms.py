@@ -6,4 +6,5 @@ class UserDataForm(ModelForm):
 
     class Meta:
         model=Data
-        fields='__all__'
+        fields=('name','age')
+        

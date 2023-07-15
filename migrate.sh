@@ -7,7 +7,7 @@ set -e
 cyan="\e[0;36m"
 blue="\e[0;34m"
 red="\e[0;31m"
-end="\e[m"
+endd="\e[m"
 custom_exit=115
 
 #load environment variables 
@@ -23,11 +23,11 @@ notify() {
 
     case $1 in 
     error)
-        echo -e "${red} $2 ${end}" ;;
+        echo -e "${red} $2 ${endd}" ;;
     success)
-        echo -e "${blue} $2 ${end}" ;;
+        echo -e "${blue} $2 ${endd}" ;;
     info)
-        echo -e "${cyan} $2 ${end}" ;;
+        echo -e "${cyan} $2 ${endd}" ;;
     *)
         echo -e "${red} Parameter required in script ${end}" ;;
     esac
