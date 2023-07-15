@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #my apps
-    'src',
+    'calculator',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'age_calc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,24 +104,24 @@ if DEBUG and not all(DATABASE_DEV):
 elif DEBUG == False and all(DATABASE_PROD):
     DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.potgresql_psycopg2',
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': DATABASE_PROD['PG_NAME'],
-                'USER':DATABASE_PROD['PG_NAME'],
-                'PASSWORD': DATABASE_PROD['PG_NAME'],
-                'HOST': DATABASE_PROD['PG_NAME'],
-                'PORT' : DATABASE_PROD['PG_NAME'],
+                'USER':DATABASE_PROD['PG_USER'],
+                'PASSWORD': DATABASE_PROD['PG_PASSWORD'],
+                'HOST': DATABASE_PROD['PG_HOST'],
+                'PORT' : DATABASE_PROD['PG_PORT'],
             }
         }
     
 elif DEBUG and all(DATABASE_DEV):
     DATABASES = {
             'default': {
-                'ENGINE': 'django.db.backends.potgresql_psycopg2',
+                'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': DATABASE_DEV['PG_NAME'],
-                'USER':DATABASE_DEV['PG_NAME'],
-                'PASSWORD': DATABASE_DEV['PG_NAME'],
-                'HOST': DATABASE_DEV['PG_NAME'],
-                'PORT' : DATABASE_DEV['PG_NAME'],
+                'USER':DATABASE_DEV['PG_USER'],
+                'PASSWORD': DATABASE_DEV['PG_PASSWORD'],
+                'HOST': DATABASE_DEV['PG_HOST'],
+                'PORT' : DATABASE_DEV['PG_PORT'],
             }
         }
     
