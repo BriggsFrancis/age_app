@@ -23,7 +23,7 @@ def home(request):
     else:
         form=UserDataForm()
     
-    return render(request,"age_calc/home.html",{'form':form})
+    return render(request,"calculator/form.html",{'form':form})
    
 def result(request,name):
     name_obj=get_object_or_404(Data,name=name)
@@ -37,5 +37,5 @@ def result(request,name):
         'age_years':name_obj.calculate_age_years(),
         'generation': name_obj.generation()
     }
-    return render(request,'age_calc/result.html',context=context)
+    return render(request,'calculator/result.html',context=context)
 
