@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     #my apps
     'calculator',
 
     #thrid party 
     'crispy_forms',
+    
 ]
 
 MIDDLEWARE = [

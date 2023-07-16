@@ -1,57 +1,60 @@
-{% extends "../base.html" %}
+{% extends "../base.html" %} {% block content %}
 
-{% block content %}
+<div class="relative table overflow-x-auto shadow-md sm:rounded-lg">
+      <h2 >
+        {{ name|title }} 
+      </h2>
+   
 
-<h4>{{name}} here's some fun facts about you</h4>
-<p>You are {{age_seconds}} seconds old</p>
-<p>You are {{age_minutes}} minutes old</p>
-<p>You are {{age_hours}} hours old</p>
-<p>You are {{age_days}} days old</p>
-<p>You are {{age_weeks}} weeks old</p>
-<p>You are {{age_years}} years old</p>
-<p>You are {{generation}}</p>
-
-
-    <div class="relative table overflow-x-auto shadow-md sm:rounded-lg">
-      <table
-        class="w-full tab sm:rounded-lg text-sm text-left text-gray-500 dark:text-gray-400"
-       >
-        <thead
-          class="text-xs text-gray-700 uppercase sm:rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      <p class= "w-full tab sm:rounded-lg text-sm text-left text-gray-500 dark:text-gray-400">
+        here's some fun facts about you</p>
+      <p class= "w-full tab sm:rounded-lg text-sm text-left text-gray-500 dark:text-gray-400">
+        You are {{generation}}</p>
+</div>
+<div class="relative table overflow-x-auto shadow-md sm:rounded-lg">
+  <table
+    class="w-full tab sm:rounded-lg text-sm text-left text-gray-500 dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase sm:rounded-lg bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">Seconds</th>
+        <th scope="col" class="px-6 py-3">Minutes</th>
+        <th scope="col" class="px-6 py-3">Hours</th>
+        <th scope="col" class="px-6 py-3">Days</th>
+        <th scope="col" class="px-6 py-3">Weeks</th>
+        <th scope="col" class="px-6 py-3">Years</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Edit</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
         >
-          <tr>
-            <th scope="col" class="px-6 py-3">Seconds</th>
-            <th scope="col" class="px-6 py-3">Minutes</th>
-            <th scope="col" class="px-6 py-3">Hours</th>
-            <th scope="col" class="px-6 py-3">Days</th>
-            <th scope="col" class="px-6 py-3">
-              <span class="sr-only">Edit</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-           >
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Apple MacBook Pro 17"
-            </th>
-            <td class="px-6 py-4">Silver</td>
-            <td class="px-6 py-4">Laptop</td>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4 text-right">
-              <a
-                href="#"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >Edit</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          {{age_seconds}}
+        </th>
+        <td class="px-6 py-4">{{ age_minutes }}</td>
+        <td class="px-6 py-4">{{age_hours}}</td>
+        <td class="px-6 py-4">{{age_days}}</td>
+        <td class="px-6 py-4">{{age_weeks}}</td>
+        <td class="px-6 py-4">{{age_years}}</td>
+        <td class="px-6 py-4 text-right">
+          <a
+            href="#"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 {% endblock content %}
