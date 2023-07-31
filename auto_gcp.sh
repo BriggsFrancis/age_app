@@ -69,21 +69,21 @@ echo "Upgrading pip and Installing requirements "
 pip install --upgrade pip 
 pip install -r requirements.txt
 
-echo  "Downloading cloud sql auth proxy"
-cat <<EOF
-If you're testing your app locally this is important 
-By now you should have a project with a project id 
+# echo  "Downloading cloud sql auth proxy"
+# cat <<EOF
+# If you're testing your app locally this is important 
+# By now you should have a project with a project id 
 
-EOF
-echo "Auth and acquire credentials for the API"
-gcloud auth application-default login
+# EOF
+# echo "Auth and acquire credentials for the API"
+# gcloud auth application-default login
 
 
-echo "For a 64bit linux system"
-curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.6.0/cloud-sql-proxy.linux.amd64
-chmod +x cloud-sql-proxy
+# echo "For a 64bit linux system"
+# curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.6.0/cloud-sql-proxy.linux.amd64
+# chmod +x cloud-sql-proxy
 
-echo "rememeber the location of this download"
+# echo "rememeber the location of this download"
 echo "making postres instance"
 gcloud sql instances create ${CLOUD_SQL_INSTANCE_NAME} \
      --project ${PROJECT_ID} \
@@ -102,6 +102,7 @@ gcloud sql users create ${DATABASE_USERNAME} \
 
 
 echo "This will sleep for 15 mins to give you time"
+
 cat <<EOF 
 Make  cloud sql service
 In the Google Cloud console, go to the Service accounts page.
