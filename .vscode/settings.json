@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/apps/v1%40deployment": "file:///home/francis/django_scripts/age_app/age_app.yaml"
+    }
+}

@@ -1,0 +1,21 @@
+DATABASE_NAME=age-app-db
+DATABASE_USER=age-app-user
+DATABASE_PASSWORD=Fr@nkie44
+#development server 
+DB_NAME_DEV=age
+DB_USER_DEV=frankie
+DB_PASSWORD_DEV=Fr@nkie44
+DB_HOST_DEV=localhost
+DB_PORT_DEV=5432
+
+#production sever 
+DB_NAME=age-app-db
+DB_USER=age-app-user
+DB_PASSWORD=Fr@nkie44
+DB_HOST=127.0.0.1
+DB_PORT=5432
+
+
+SECRET_KEY=django-insecure-@$8#kn#yi7frr1&iu*vzshzmt#)ovqx968x*o8iz@istp6p+n7
+
+DEBUG=False

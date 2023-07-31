@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -84,14 +84,14 @@ WSGI_APPLICATION = 'age_calc.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 # development server 
-DATABASE_DEV={
-    'PG_NAME' : os.getenv('DB_NAME_DEV'),
-    'PG_USER' : os.getenv('DB_USER_DEV'),
-    'PG_PASSWORD' : os.getenv('DB_PASSWORD_DEV'),
-    'PG_HOST' : os.getenv('DB_HOST_DEV'),
-    'PG_PORT' : os.getenv('DB_PORT_DEV'),
-}
-#production server 
+# DATABASE_DEV={
+#     'PG_NAME' : os.getenv('DB_NAME_DEV'),
+#     'PG_USER' : os.getenv('DB_USER_DEV'),
+#     'PG_PASSWORD' : os.getenv('DB_PASSWORD_DEV'),
+#     'PG_HOST' : os.getenv('DB_HOST_DEV'),
+#     'PG_PORT' : os.getenv('DB_PORT_DEV'),
+# }
+# #production server 
 DATABASE_PROD={
     'PG_NAME' : os.getenv('DB_NAME'),
     'PG_USER' : os.getenv('DB_USER'),
@@ -99,15 +99,15 @@ DATABASE_PROD={
     'PG_HOST' : os.getenv('DB_HOST'),
     'PG_PORT' : os.getenv('DB_PORT'),
 }
-if DEBUG and not all(DATABASE_DEV):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-elif DEBUG == False and all(DATABASE_PROD):
-    DATABASES = {
+# if DEBUG and not all(DATABASE_DEV):
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# elif DEBUG == False and all(DATABASE_PROD):
+DATABASES = {
             'default': {
                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
                 'NAME': DATABASE_PROD['PG_NAME'],
@@ -118,17 +118,17 @@ elif DEBUG == False and all(DATABASE_PROD):
             }
         }
     
-elif DEBUG and all(DATABASE_DEV):
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                'NAME': DATABASE_DEV['PG_NAME'],
-                'USER':DATABASE_DEV['PG_USER'],
-                'PASSWORD': DATABASE_DEV['PG_PASSWORD'],
-                'HOST': DATABASE_DEV['PG_HOST'],
-                'PORT' : DATABASE_DEV['PG_PORT'],
-            }
-        }
+# elif DEBUG and all(DATABASE_DEV):
+#     DATABASES = {
+#             'default': {
+#                 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#                 'NAME': DATABASE_DEV['PG_NAME'],
+#                 'USER':DATABASE_DEV['PG_USER'],
+#                 'PASSWORD': DATABASE_DEV['PG_PASSWORD'],
+#                 'HOST': DATABASE_DEV['PG_HOST'],
+#                 'PORT' : DATABASE_DEV['PG_PORT'],
+#             }
+#         }
     
 
 
@@ -166,7 +166,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # Default primary key field type
